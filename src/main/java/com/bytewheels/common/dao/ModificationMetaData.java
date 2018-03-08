@@ -1,11 +1,20 @@
 package com.bytewheels.common.dao;
 
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
 
+@Embeddable
 public class ModificationMetaData {
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "createddate", updatable = false)
     private Date createDate;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "updatedate")
     private Date updateDate;
 
     public Date getCreateDate() {

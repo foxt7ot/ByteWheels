@@ -2,16 +2,27 @@ package com.bytewheels.inventory.dao;
 
 import com.bytewheels.common.dao.ModificationMetaData;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "item_inventory")
 public class ItemInventory {
 
+    @Id
+    @Column(name = "id")
     private String id;
 
+    @ManyToOne
+    @JoinColumn(name = "item_id",referencedColumnName = "id")
     private Item item;
 
+    @Column(name = "registration_number",nullable = false)
     private String registrationNumber;
 
+    @Column(name="price")
     private float price;
 
+    @Embedded
     private ModificationMetaData modificationMetaData;
 
     public String getId() {

@@ -2,18 +2,29 @@ package com.bytewheels.customer.dao;
 
 import com.bytewheels.common.dao.ModificationMetaData;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "customer")
 public class Customer {
 
+    @Id
+    @Column(name = "id")
     private String id;
 
+    @Column(name = "email",unique = true,nullable = false)
     private String email;
 
+    @Column(name = "firstname",nullable = false)
     private String firstName;
 
+    @Column(name = "lastname")
     private String lastName;
 
+    @Column(name="mobilenumber",nullable = false)
     private String mobileNumber;
 
+    @Embedded
     private ModificationMetaData modificationMetaData;
 
     public String getId() {

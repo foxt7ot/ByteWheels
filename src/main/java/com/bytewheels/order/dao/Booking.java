@@ -4,20 +4,34 @@ import com.bytewheels.common.dao.ModificationMetaData;
 import com.bytewheels.customer.dao.Customer;
 import com.bytewheels.inventory.dao.ItemInventory;
 
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "booking")
 public class Booking {
 
+    @Id
+    @Column(name = "id")
     private String id;
 
+    @OneToMany
+    @JoinColumn(name = "customer_id",referencedColumnName = "id")
     private Customer customer;
 
+    @OneToMany
+    @JoinColumn(name = "item_inventory_id",referencedColumnName = "id")
     private ItemInventory itemInventory;
 
+    @Temporal(TemporalType.DATE)
+    @Column(name = "from_date")
     private Date fromDate;
 
+    @Temporal(TemporalType.DATE)
+    @Column(name = "to_date")
     private Date toDate;
 
+    @Embedded
     private ModificationMetaData modificationMetaData;
 
     public String getId() {

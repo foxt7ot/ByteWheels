@@ -29,7 +29,7 @@ dependencies{
 }
 
 
-task setupH2 <<{
+task setupH2{
     URLClassLoader loader = GroovyObject.class.classLoader as URLClassLoader
     configurations.driver.each {
         File file -> loader.addURL(file.toURI().toURL())
@@ -42,7 +42,7 @@ task setupH2 <<{
     startDataBase()
     def sqlGlobal = Sql.newInstance('jdbc:h2:tcp://localhost/mem:bytewheels;MVCC=TRUE', 'sa', '', 'org.h2.Driver')
     sqlGlobal.execute(bytewheelsSQL)
-    sleep(1000000)
+    sleep(1000000000)
 }
 
 private void startDataBase(){
