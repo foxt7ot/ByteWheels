@@ -10,7 +10,7 @@ import java.util.Date;
 public class ModificationMetaData {
 
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "createddate", updatable = false)
+    @Column(name = "createdate", updatable = false)
     private Date createDate;
 
     @Temporal(TemporalType.TIMESTAMP)
