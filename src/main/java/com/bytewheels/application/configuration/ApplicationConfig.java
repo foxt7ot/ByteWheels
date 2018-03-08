@@ -1,4 +1,4 @@
-package com.test.application.configuration;
+package com.bytewheels.application.configuration;
 
 public class ApplicationConfig {
 
