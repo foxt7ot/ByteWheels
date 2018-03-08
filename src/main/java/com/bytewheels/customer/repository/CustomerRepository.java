@@ -1,8 +1,8 @@
 package com.bytewheels.customer.repository;
 
 import com.bytewheels.customer.dao.Customer;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import org.springframework.data.repository.CrudRepository;
 
-public interface CustomerRepository extends PagingAndSortingRepository<Customer, String> {
+public interface CustomerRepository extends CrudRepository<Customer, String> {
 
 }
