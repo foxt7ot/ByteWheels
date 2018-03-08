@@ -15,11 +15,11 @@ public class Booking {
     @Column(name = "id")
     private String id;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "customer_id",referencedColumnName = "id")
     private Customer customer;
 
-    @OneToMany
+    @ManyToOne
     @JoinColumn(name = "item_inventory_id",referencedColumnName = "id")
     private ItemInventory itemInventory;
 
