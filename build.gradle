@@ -26,6 +26,8 @@ dependencies{
     testCompile group: 'com.h2database', name: 'h2', version: h2_version
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: spring_boot_version
     compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: spring_boot_version
+    compile group: 'org.hibernate',name: 'hibernate-entitymanager' ,version: hibernate_version
+    compile group: 'org.hibernate',name: 'hibernate-core' ,version: hibernate_version
 }
 
 
@@ -42,7 +44,7 @@ task setupH2{
     startDataBase()
     def sqlGlobal = Sql.newInstance('jdbc:h2:tcp://localhost/mem:bytewheels;MVCC=TRUE', 'sa', '', 'org.h2.Driver')
     sqlGlobal.execute(bytewheelsSQL)
-    sleep(1000000000)
+    //sleep(1000000000)
 }
 
 private void startDataBase(){
